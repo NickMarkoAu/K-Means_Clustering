@@ -1,0 +1,41 @@
+plugins {
+    id "java"
+    id "application"
+}
+
+jar {
+    enabled = true
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor "org.projectlombok:lombok:${LOMBOK_VERSION}"
+
+    implementation 'org.apache.commons:commons-lang3:3.9'
+    implementation 'org.apache.commons:commons-text:1.8'
+    implementation "org.projectlombok:lombok:${LOMBOK_VERSION}"
+    implementation "com.google.guava:guava:28.1-jre"
+
+    implementation 'commons-logging:commons-logging:1.2'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+
+    implementation "com.univocity:univocity-parsers:2.8.4"
+
+    implementation 'org.slf4j:slf4j-api:1.7.25'
+    implementation 'org.slf4j:slf4j-simple:1.7.6'
+}
+
+application {
+    mainClass = 'com.pharmmap.Main'
+}
+test {
+    useJUnitPlatform()
+}
